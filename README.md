@@ -1,0 +1,2 @@
+# Hackathon
+ This is an application that is used to automatically generate a fixture of twenty teams (initially). Updates will be made to allow the program to accept multiple team numbers. The application sorts the teams in this manner, teams which are not in the same town are played first, then derby matches are played last in every season half. It initially might contain some bugs, but updates will record updates
