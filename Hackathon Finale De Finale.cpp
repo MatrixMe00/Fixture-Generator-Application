@@ -56,7 +56,6 @@ int main()
 	readTeam.open("teams.txt");
 	readTown.open("town.txt");
 	readStadium.open("stadiums.txt");
-	readFixtures.open("fixtures.txt");
 
 	if (readTeam && readTown && readStadium) {
 		int count = 0;
@@ -107,6 +106,9 @@ int main()
 	}
 
 	case 2: {
+	    //try opening fixtures.txt
+	    readFixtures.open("fixtures.txt");
+
 		//show fixtures from the file
 		if (!readFixtures) {
 			char opt;
@@ -120,7 +122,7 @@ int main()
 			}
 
 		opt = tolower(opt);
-		while (opt != 'y' && opt != 'n') {
+		if (opt != 'y' && opt != 'n') {
 			SetConsoleTextAttribute(color, 4);
 			cout << "\nValue not accepted! Please provide 'y' or 'n'" << endl;
 			cin.clear();
@@ -267,7 +269,7 @@ void sortTeams(string array[][COLS], int size) {
 	writeFixtures << "=====================================================================================\n";
 	//***********************************
 	//	Creating all fixtures			*
-	//***********************************	
+	//***********************************
 	for (int i = 0; i < size; i++) {
 		if (i < size / 2) {
 			int j;
@@ -438,7 +440,7 @@ void rearrange(string array[][COLS], int size, bool first_last) {
 	if (first_last) {
 		//a loop to send the last number to the back
 		while (i < size) {
-			//catch the first value	and hold it in memory	
+			//catch the first value	and hold it in memory
 			if (i == 0) {
 				for (int l = 0; l < COLS; l++) {
 					temp[l] = array[0][l];
@@ -466,7 +468,7 @@ void rearrange(string array[][COLS], int size, bool first_last) {
 		//a loop to bring the last number to the front
 		i = size - 1;
 		while (i >= 0) {
-			//catch the last value	and hold it in memory	
+			//catch the last value	and hold it in memory
 			if (i == size - 1) {
 				for (int l = 0; l < COLS; l++) {
 					temp[l] = array[size - 1][l];
@@ -496,7 +498,7 @@ void setTeams(string fullTeam[][COLS], string home[][COLS], string away[][COLS],
 	//Track pointers
 	int h = 0,
 		a = 0,
-		//Selector variable to point main array		
+		//Selector variable to point main array
 		pointer;
 
 	//Dividing main array into halves
@@ -529,7 +531,7 @@ void setRandomPlaces(int array[], int size) {
 		int d = 0;
 
 		while (d < size) {
-			//Checking for sameness	
+			//Checking for sameness
 			if (array[d] == num) {
 				//Be cautious of the boundary
 				if (num + 1 < size) {
@@ -703,7 +705,7 @@ void showMenu(string menu_array[], int menu_size) {
 	}
 }
 
-bool toMenu() 
+bool toMenu()
 {
 	char choice;
 
